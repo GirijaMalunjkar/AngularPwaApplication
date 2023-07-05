@@ -1,6 +1,6 @@
 {
-  "name": "my-pwa-app",
-  "short_name": "my-pwa-app",
+  "name": "angular-pwa",
+  "short_name": "angular-pwa",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
