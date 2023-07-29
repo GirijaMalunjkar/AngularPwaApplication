@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-pwa": {
+    "angular-pwa-L_and_T": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-pwa",
+            "outputPath": "dist/angular-pwa-l-and-t",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -22,15 +22,17 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              "src/manifest.webmanifest"
+              "src/assets"
             ],
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [],
-            "serviceWorker": true,
-            "ngswConfigPath": "ngsw-config.json"
+            "scripts": [
+              
+                "node_modules/jquery/dist/jquery.js",
+                "node_modules/bootstrap/dist/js/bootstrap.js",
+                "node_modules/admin-lte/dist/js/adminlte.js"          
+            ]
           },
           "configurations": {
             "production": {
@@ -63,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "angular-pwa:build:production"
+              "browserTarget": "angular-pwa-L_and_T:build:production"
             },
             "development": {
-              "browserTarget": "angular-pwa:build:development"
+              "browserTarget": "angular-pwa-L_and_T:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -74,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-pwa:build"
+            "browserTarget": "angular-pwa-L_and_T:build"
           }
         },
         "test": {
@@ -87,8 +89,7 @@
             "tsConfig": "tsconfig.spec.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              "src/manifest.webmanifest"
+              "src/assets"
             ],
             "styles": [
               "src/styles.css"
@@ -100,6 +101,6 @@
     }
   },
   "cli": {
-    "analytics": false
+    "analytics": "6c079cee-ee59-4457-9778-7c2528615e10"
   }
 }

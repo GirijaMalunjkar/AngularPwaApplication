@@ -1,0 +1,34 @@
+/* Style for the container */
+.dialog-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Set the container to occupy the full viewport height */
+  }
+  
+  /* Style for the paragraph inside the container */
+  .dialog-container p {
+    font-size: 18px;
+    color: #333;
+    text-align: center;
+    margin: 20px; /* Add some spacing around the paragraph */
+  }
+  
+  /* Style for the button */
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff; /* Blue color for primary button */
+    color: #fff; /* Text color for the button */
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  /* Additional style for the button on hover */
+  .btn:hover {
+    background-color: #0056b3; /* Darker shade of blue on hover */
+  }
+  

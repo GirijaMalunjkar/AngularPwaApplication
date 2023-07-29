@@ -1,0 +1,14 @@
+<body class="container">  
+    <div class="login-container">
+      <div class="login-content">
+        <h1 class="welcome-text">Admin Login</h1>
+        <form class="login-form" (ngSubmit)="onLogin()">
+          <label>Admin Id</label>
+          <input type="text" [(ngModel)]="username" name="username" placeholder="Username" class="input-field">
+          <label>Password</label>
+          <input type="password" [(ngModel)]="password" name="password" placeholder="Password" class="input-field">
+          <button type="submit" class="login-button">Login</button>
+        </form>
+      </div>
+    </div>
+  </body>
