@@ -1,66 +1,59 @@
-// import {Component, Inject} from '@angular/core';
-// import {MatDialog, MAT_DIALOG_DATA, MatDialogModule} from '@angular/material/dialog';
-// import {NgIf} from '@angular/common';
-// import {MatButtonModule} from '@angular/material/button';
+// dashboard.component.ts
+import { Component, Inject } from '@angular/core';
+import { MatDialog, MAT_DIALOG_DATA, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
+import { take } from 'rxjs/operators';
 
-// export interface DialogData {
-//   animal: 'panda' | 'unicorn' | 'lion';
-// }
-
-// /**
-//  * @title Injecting data when opening a dialog
-//  */
-// @Component({
-//   selector: 'app-dashboard',
-//   templateUrl: './dashboard.component.html',
-//   styleUrls: ['./dashboard.component.css'],
-//   standalone: true,
-//   imports: [MatButtonModule, MatDialogModule],
-// })
-// export class DashboardComponent {
-//   constructor(public dialog: MatDialog) {}
-
-//   openDialog() {
-//     this.dialog.open(DashboardComponentChangeModal, {
-//       data: {
-//         animal: 'panda',
-//       },
-//     });
-//   }
-// }
-
-// @Component({
-//   selector: 'dashboard.component.changemodal',
-//   templateUrl: 'dashboard.component.changemodal.html',
-//   standalone: true,
-//   imports: [MatDialogModule, NgIf],
-// })
-// export class DashboardComponentChangeModal {
-//   constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) {}
-// }
-
-import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { ChangeModalComponent } from '../change-modal/change-modal.component';
-
+// Define the DialogData interface
+export interface DialogData {
+  name: string;
+ 
+}
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent {
+  title = 'angular-material';
+  dialogRef: MatDialogRef<ChangeModalComponent> | undefined;
 
-  title = 'angular-mateiral';
+  constructor(private dialog: MatDialog) {}
 
-  constructor(private dialogRef : MatDialog){}
+  openDialog() {
+    
+    if (this.dialogRef) {
+      this.dialogRef.close();
+    }
 
-  openDialog(){
-    this.dialogRef.open(ChangeModalComponent,{
-      data : {
-        name : 'Samuel'
+    // Configure the dialog
+    const dialogConfig: MatDialogConfig = {
+      data: {
+        name: 'Samuel',
+       
       },
+      disableClose: true, 
+      panelClass: 'custom-dialog-container', 
+    };
+
+    // Open the dialog with the configured options and save the reference
+    this.dialogRef = this.dialog.open(ChangeModalComponent, dialogConfig);
+
+    // Subscribe to the afterClosed() method to clear the dialogRef when the dialog is closed
+    this.dialogRef.afterClosed().pipe(take(1)).subscribe(() => {
+      this.dialogRef = undefined;
     });
   }
+}
+
+@Component({
+  selector: 'dashboard.component.changemodal',
+  templateUrl: '../change-modal/change-modal.component.html',
+   styleUrls: ['../change-modal/change-modal.component.css'],
+})
+export class ChangeModalComponent {
+  // Inject the data into the dialog component
+  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData, private dialog: MatDialog) {}
+
 
 }
