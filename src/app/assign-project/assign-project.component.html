@@ -20,20 +20,19 @@
         <!-- Sidebar -->
         <div class="sidebar">
           <!-- Sidebar user panel (optional) -->
-          <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            <div class="image">
-              <img src="../../assets/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <div class="user-panel mt-3 pb-3 mb-3 d-flex" style="position: relative; display: inline-block;">
+            <div class="image" style="position: absolute; top: 0; left: 55px; width: 100px; height: 100px; border-radius: 50%;">
+              <img src="../../assets/AdminLTELogo.png" class="img-circle elevation-2" alt="User Image">
             </div>
-            <div class="info">
+            <div class="info" style="display: block; margin-top: 90px; font-size: 25px;">
               <a href="#" class="d-block">Alexander Pierce</a>
             </div>
           </div>
-  
           <!-- Sidebar Menu -->
           <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
               <li class="nav-item menu-open">
-                <a href="#" class="nav-link active">
+                <a routerLink="/dashboard" class="nav-link">
                   <i class="nav-icon fas fa-tachometer-alt"></i>
                   <p>
                     Dashboard
@@ -41,7 +40,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a routerLink="/assign-project" class="nav-link">
+                <a class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Assign Project</p>
                 </a>
@@ -54,21 +53,23 @@
       </aside>
   
       <!-- Content Wrapper. Contains page content -->
-      <div class="content-wrapper">
+      <div class="content-wrapper" style="background-color: rgb(203 210 214);">
         <!-- Content Header (Page header) -->
         <div class="content-header">
           <div class="container-fluid">
             <div class="row mb-2">
               <div class="col-sm-6">
-                <h1 class="m-0">Assign Project</h1>
+                <!-- <h1 class="m-0">Assign Project</h1> -->
               </div><!-- /.col -->
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                  <li class="breadcrumb-item active">Welcome, D.Kumar</li>
+                  <li class="breadcrumb-item active" style="color: black; font-weight: bold;">Welcome, D.Kumar</li>
                 </ol>
-              </div><!-- /.col -->
+              </div>
+              <!-- /.col -->
             </div><!-- /.row -->
           </div><!-- /.container-fluid -->
+          <h4 class="m-0" style="padding-left:10px ;">Assign Project</h4>
         </div>
         <!-- /.content-header -->
           <div class="mainselectorbody">
@@ -84,11 +85,12 @@
                 
               </select>
             </div>
+            <button class="btn btn-primary" style="padding: 5px;" mat-button (click)="openDialogBulk()">Bulk Upload</button>
           </div>
           
         <!-- Main content -->
         <section class="content">
-          <div class="container-fluid">
+          <div class="container-fluid" style="background-color: white; border-radius: 25px;">
             <!-- /.row -->
   
             <div class="row">
@@ -99,30 +101,43 @@
                       <thead>
                         <tr>
                           <th>Name</th>
-                          <th>Project Assigned</th>
+                          <th>Project Assigned Time </th>
+                          <th>Shift</th>
                           <th>Action</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
                           <td>Person 1</td>
-                          <td>A</td>
+                          <td>7:14 AM</td>
                           <td>
-                            <span>Change Project | Delete</span>
+                            <span>1st</span>
+                          </td>
+                          <td>
+                            <form><input type="checkbox" name="exampleCheckbox" checked>
+                            </form>
                           </td>
                         </tr>
                         <tr>
                           <td>Person 2</td>
-                          <td>A</td>
+                          <td>7:14 AM</td>
                           <td>
-                            <span>Change Project | Delete</span>
+                            <span>1st</span>
+                          </td>
+                          <td>
+                            <form><input type="checkbox" name="exampleCheckbox" checked>
+                            </form>
                           </td>
                         </tr>
                         <tr>
                           <td>Person 3</td>
-                          <td>B</td>
+                          <td>7:14 AM</td>
                           <td>
-                            <span>Change Project | Delete</span>
+                            <span>1st</span>
+                          </td>
+                          <td>
+                            <form><input type="checkbox" name="exampleCheckbox" checked>
+                            </form>
                           </td>
                         </tr>
                       </tbody>

@@ -9,6 +9,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AssignProjectComponent } from './assign-project/assign-project.component';
 import { ChangeModalComponent } from './change-modal/change-modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { DeleteModalComponent } from './delete-modal/delete-modal.component';
+import { BulkUploadModalComponent } from './bulk-upload-modal/bulk-upload-modal.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     LoginComponent,
     AssignProjectComponent,
     ChangeModalComponent,
+    DeleteModalComponent,
+    BulkUploadModalComponent,
   ],
   imports: [
     BrowserModule,

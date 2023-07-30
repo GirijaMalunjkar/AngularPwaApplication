@@ -20,7 +20,32 @@ export class DashboardComponent {
 
   constructor(private dialog: MatDialog) {}
 
-  openDialog() {
+  openDialogChange() {
+    
+    if (this.dialogRef) {
+      this.dialogRef.close();
+    }
+
+    // Configure the dialog
+    const dialogConfig: MatDialogConfig = {
+      data: {
+        name: 'Samuel',
+       
+      },
+      disableClose: true, 
+      panelClass: 'custom-dialog-container', 
+    };
+
+    // Open the dialog with the configured options and save the reference
+    this.dialogRef = this.dialog.open(ChangeModalComponent, dialogConfig);
+
+    // Subscribe to the afterClosed() method to clear the dialogRef when the dialog is closed
+    this.dialogRef.afterClosed().pipe(take(1)).subscribe(() => {
+      this.dialogRef = undefined;
+    });
+  }
+
+  openDialogDelete() {
     
     if (this.dialogRef) {
       this.dialogRef.close();

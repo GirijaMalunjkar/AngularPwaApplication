@@ -1,0 +1,72 @@
+.cdk-overlay-backdrop {
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+     backdrop-filter: blur(5px);
+  }
+  
+  .dialog-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+    border-radius: 4px;
+  }
+  
+  .dialog-container p {
+    font-size: 18px;
+    color: #333;
+    text-align: center;
+    margin: 20px;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .custom-dialog-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+    border-radius: 4px;
+    margin: 0 auto;
+    top: 30%;
+  }
+  .close-btn {
+    display: block;
+    margin-top: 10px;
+    padding: 8px 20px;
+    background-color: #ccc;
+    color: #333;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .close-btn:hover {
+    background-color: #aaa;
+  }
