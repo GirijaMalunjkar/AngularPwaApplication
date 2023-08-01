@@ -1,57 +1,15 @@
-import { Component, Inject } from '@angular/core';
-import { MatDialog, MAT_DIALOG_DATA, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
-import { take } from 'rxjs/operators';
+import { Component } from '@angular/core';
+import { DialogService } from '../dialog.service';
 
-export interface DialogData {
-  name: string;
- 
-}
 @Component({
   selector: 'app-assign-project',
   templateUrl: './assign-project.component.html',
-  styleUrls: ['./assign-project.component.css']
+  styleUrls: ['./assign-project.component.css'],
 })
 export class AssignProjectComponent {
-  title = 'angular-material';
-  dialogRef: MatDialogRef<ChangeModalComponent> | undefined;
+  constructor(private dialogService: DialogService) {}
 
-  constructor(private dialog: MatDialog) {}
-
-  openDialogBulk() {
-    
-    if (this.dialogRef) {
-      this.dialogRef.close();
-    }
-
-    // Configure the dialog
-    const dialogConfig: MatDialogConfig = {
-      data: {
-        name: 'Samuel',
-       
-      },
-      disableClose: true, 
-      panelClass: 'custom-dialog-container', 
-    };
-
-    // Open the dialog with the configured options and save the reference
-    this.dialogRef = this.dialog.open(ChangeModalComponent, dialogConfig);
-
-    // Subscribe to the afterClosed() method to clear the dialogRef when the dialog is closed
-    this.dialogRef.afterClosed().pipe(take(1)).subscribe(() => {
-      this.dialogRef = undefined;
-    });
+  openBulkUploadDialog(): void {
+    this.dialogService.openBulkUploadDialog();
   }
-
-}
-
-@Component({
-  selector: 'dashboard.component.changemodal',
-  templateUrl: '../change-modal/change-modal.component.html',
-   styleUrls: ['../change-modal/change-modal.component.css'],
-})
-export class ChangeModalComponent {
-  // Inject the data into the dialog component
-  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData, private dialog: MatDialog) {}
-
-
 }

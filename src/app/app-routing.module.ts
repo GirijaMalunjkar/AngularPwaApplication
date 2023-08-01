@@ -9,8 +9,6 @@ const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'assign-project', component: AssignProjectComponent },
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: '**', redirectTo: '/dashboard' },
  
 ];
 
